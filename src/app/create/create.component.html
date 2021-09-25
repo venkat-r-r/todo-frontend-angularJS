@@ -1,0 +1,10 @@
+<h1>Create New Account</h1>
+<div class="container">
+    <div class="alert alert-warning" *ngIf='isInvalid'>{{errorMessage}}</div>
+
+    <div>
+        New user name : <input type="text" name="username" [(ngModel)]="username">
+        Password : <input type="password" name="password" [(ngModel)]="password">
+        <button class="btn btn-success" (click)=createAccount()>Create</button>
+    </div>
+</div>
