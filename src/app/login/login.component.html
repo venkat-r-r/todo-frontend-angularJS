@@ -3,12 +3,8 @@
     <div class="alert alert-warning" *ngIf='isInvalid'>{{errorMessage}}</div>
 
     <div>
-        User name : <input type="text" name="username" [(ngModel)]="username">
-        Password : <input type="password" name="password" [(ngModel)]="password">
+        Username: <input type="text" name="username" placeholder="Username" [(ngModel)]="username">
+        Password: <input type="password" name="password" placeholder="Password" [(ngModel)]="password">
         <button class="btn btn-success" (click)=handleJWTAuthLogin()>Login</button>
-    </div>
-    <br><br>
-    <div>
-        <a routerLink='/create' >Create new user</a>
     </div>
 </div>

@@ -7,6 +7,7 @@
         </ul>
         <ul class='navbar-nav navbar-collapse justify-content-end'>
             <li *ngIf = '!h.isUserLoggedIn()'><a routerLink="/login" class='nav-link'>Login</a></li>
+            <li *ngIf = '!h.isUserLoggedIn()'><a routerLink='/create' class='nav-link'>Create Account</a></li>
             <li *ngIf = 'h.isUserLoggedIn()'><a routerLink="/logout" class='nav-link'>Logout</a></li>
         </ul>
     </nav>
