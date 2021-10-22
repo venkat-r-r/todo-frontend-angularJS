@@ -25,27 +25,27 @@ export class LoginComponent implements OnInit {
   handleBasicAuthLogin()
   {
     this.basicAuthenticationService.executeBasicAuthentication(this.username,this.password)
-    .subscribe(
-      data => {
+    .subscribe({
+      next : data => {
         this.router.navigate(['welcome'])
       },
-      error => {
+      error: error => {
         console.log(error)
          this.isInvalid = true
       }
-    )
+    })
   }
   handleJWTAuthLogin()
   {
     this.basicAuthenticationService.executeJWTAuthentication(this.username,this.password)
-    .subscribe(
-      data => {
+    .subscribe({
+      next: data => {
         this.router.navigate(['welcome'])
       },
-      error => {
+      error: error => {
         console.log(error)
          this.isInvalid = true
       }
-    )
+    })
   }
 }

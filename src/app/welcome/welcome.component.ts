@@ -29,11 +29,10 @@ export class WelcomeComponent implements OnInit {
   }
   getWelcomeMessagewithName()
   {
-    this.service.executeHelloWorldBeanServicePathVariable(this.name).subscribe(
-      response => {this.customizedMessage = response.message},
-      error => {this.customizedMessage = error.error.message;
-      },
-      )
+    this.service.executeHelloWorldBeanServicePathVariable(this.name).subscribe({
+      next: response => {this.customizedMessage = response.message},
+      error: err => {this.customizedMessage = err.error.message},
+    });
   }
 
 }

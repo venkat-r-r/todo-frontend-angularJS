@@ -48,12 +48,14 @@ export class ListTodoComponent implements OnInit {
   }
   deleteTodo(id : number)
   {
-    this.todoServices.deleteTodo(this.basicAuthenticationService.getUsername(),id).subscribe(
-       response => {
+    this.todoServices.deleteTodo(this.basicAuthenticationService.getUsername(),id).subscribe({
+      next: response => {
          this.message = 'Delete successful'
          this.refreshTodos()
        },
-       error => this.error = 'Error'
+       error: _ => this.error = 'Error'
+    }
+       
     )
   }
   updateTodo(id : number)
@@ -68,7 +70,7 @@ export class ListTodoComponent implements OnInit {
   {
     todo.done = !todo.done
     this.todoServices.updateTodo(this.basicAuthenticationService.getUsername(), id,todo).subscribe(
-    data => {
+    _ => {
         this.route.navigate(['todos'])
       }
     )
