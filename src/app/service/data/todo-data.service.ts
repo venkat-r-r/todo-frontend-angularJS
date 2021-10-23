@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { API_JPA_URL, API_URL } from 'src/app/app.constants';
+import { API_JPA_URL } from 'src/app/app.constants';
 import { todo } from '../../list-todo/list-todo.component';
 
 @Injectable({

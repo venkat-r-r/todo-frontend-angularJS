@@ -1,7 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { map } from 'rxjs/operators';
 import { API_URL } from '../app.constants';
 
 @Component({
@@ -27,17 +26,19 @@ export class CreateComponent implements OnInit {
       {
         'username' : this.username,
         'password' : this.password
-      } ).subscribe(
-        data =>{
+      } ).subscribe({
+        next: _ =>{
           this.router.navigate(['/success'])
           this.isInvalid = false
         },
-        error => {
+        error: error => {
           this.isInvalid = true
           this.errorMessage = error.error
           
           console.log(error.error)
         }
+      }
+        
       )
   }
 }
