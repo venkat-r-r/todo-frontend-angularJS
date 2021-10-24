@@ -16,6 +16,7 @@ import { TodoComponent } from './todo/todo.component';
 import { HttpIntercepterBasicAuthService } from './service/http/http-intercepter-basic-auth.service';
 import { CreateComponent } from './create/create.component';
 import { CreatedSuccessfulyComponent } from './created-successfuly/created-successfuly.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap'
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { CreatedSuccessfulyComponent } from './created-successfuly/created-succe
     AppRoutingModule,
     FormsModule,
     CommonModule,
-    HttpClientModule
+    HttpClientModule,
+    NgbModule
   ],
   providers: [
     {provide : HTTP_INTERCEPTORS, useClass: HttpIntercepterBasicAuthService , multi:true}
