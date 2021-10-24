@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { API_URL } from '../app.constants';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-create',
@@ -22,7 +22,7 @@ export class CreateComponent implements OnInit {
   }
   createAccount(){
     this.http.post<any>(
-      `${API_URL}/register`,
+      `${environment.apiURL}/register`,
       {
         'username' : this.username,
         'password' : this.password

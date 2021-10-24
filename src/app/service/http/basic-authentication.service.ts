@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map } from 'rxjs/operators'
-import { API_URL } from 'src/app/app.constants';
+import { environment } from 'src/environments/environment';
 
 export const TOKEN = 'token'
 export const AUTHENTICATED_USER = 'authenticatedUser'
@@ -15,7 +15,7 @@ export class BasicAuthenticationService {
   
   executeJWTAuthentication(username, password) {
     return this.http.post<any>(
-      `${API_URL}/authenticate`,
+      `${environment.apiURL}/authenticate`,
       {
         username,
         password
@@ -37,7 +37,7 @@ export class BasicAuthenticationService {
       Authorization: basicAuth
     })
     return this.http.get<AuthenticationBean>(
-      `${API_URL}/basic-auth`, { headers: header })
+      `${environment.apiURL}/basic-auth`, { headers: header })
       .pipe(
         map(
           data => {
