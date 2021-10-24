@@ -1,4 +1,4 @@
-<h1>Login!</h1>
+<!-- <h1>Login!</h1>
 <div class="container">
     <div class="alert alert-warning" *ngIf='isInvalid'>{{errorMessage}}</div>
 
@@ -7,4 +7,26 @@
         Password: <input type="password" name="password" placeholder="Password" [(ngModel)]="password">
         <button class="btn btn-success" (click)=handleJWTAuthLogin()>Login</button>
     </div>
+</div> -->
+<h4 style="margin-left: 0px;">Login</h4>
+<div class="container" style="margin-top: 26px;">
+    <div class="alert alert-warning" *ngIf='isInvalid'>{{errorMessage}}</div>
+    
+    <div class="row">
+        <div class="col-md-12">
+            <label class="form-label" style="margin-left: 0px;">Username</label>
+            <input type="text" name="username" placeholder="Username" [(ngModel)]="username" style="margin: 20px;" />
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <label class="form-label" style="margin-left: 0px;">Password</label>
+            <input type="password" name="password" placeholder="Password" [(ngModel)]="password" style="margin: 20px;" />
+        </div> 
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <button class="btn btn-primary" type="button">Button</button>
+        </div>
+    </div>  
 </div>
