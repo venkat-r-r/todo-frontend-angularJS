@@ -33,7 +33,7 @@ export class CreateComponent implements OnInit {
         },
         error: error => {
           this.isInvalid = true
-          this.errorMessage = error.error
+          this.errorMessage = error.error || this.errorMessage;
           
           console.log(error.error)
         }
