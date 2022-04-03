@@ -1,4 +1,4 @@
-<div>
+<!-- <div>
     <h2>Login</h2>
 
     <div class="alert alert-warning" *ngIf='isInvalid'>{{errorMessage}}</div>
@@ -14,7 +14,22 @@
         </div>
         <button class="btn btn-primary" type="button" (click)=handleJWTAuthLogin() >Login</button>
     </form>
-</div>
+</div> -->
+<section class="login-clean main">
+    <form>
+        <h2 class="visually-hidden">Login Form</h2>
+        <div class="mb-3">
+            <input type="text" class="form-control" name="username" placeholder="Enter Username" [(ngModel)]="username" />
+        </div>
+        <div class="mb-3">
+            <input type="password" class="form-control" name="password" placeholder="Enter Password" [(ngModel)]="password" />
+        </div>
+        <div class="mb-3">
+            <button class="btn btn-primary d-block w-100" type="button" (click)=handleJWTAuthLogin()>Log In</button>
+        </div>
+        <a class="forgot" routerLink="/create" >Don't have an account?</a>
+    </form>
+</section>
 
 
 
