@@ -12,26 +12,25 @@ import { BasicAuthenticationService } from '../service/http/basic-authentication
 })
 export class WelcomeComponent implements OnInit {
 
-  name =''
-  customizedMessage = ''
-  constructor(private h:BasicAuthenticationService,private service : WelcomeDataService) { }
+  name = '';
+  customizedMessage = '';
+  constructor(private h: BasicAuthenticationService, private service: WelcomeDataService) { }
 
   ngOnInit(): void {
-    this.name = this.h.getUsername()
+    this.name = this.h.getUsername();
   }
-  getWelcomeMessage()
+  getWelcomeMessage(): void
   {
     this.service.executeHelloWorldBeanService().subscribe(
-      response => {this.customizedMessage = response.message},
-      error => {this.customizedMessage = error.error.message;
-      },
-      )
+      (response: any) => {this.customizedMessage = response.message; },
+      (error: any) => {this.customizedMessage = error.error.message; },
+    );
   }
-  getWelcomeMessagewithName()
+  getWelcomeMessageWithName(): void
   {
     this.service.executeHelloWorldBeanServicePathVariable(this.name).subscribe({
-      next: response => {this.customizedMessage = response.message},
-      error: err => {this.customizedMessage = err.error.message},
+      next: (response: any) => {this.customizedMessage = response.message; },
+      error: (err: any) => {this.customizedMessage = err.error.message; },
     });
   }
 

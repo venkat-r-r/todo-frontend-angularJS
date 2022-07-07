@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { CommonModule } from '@angular/common'
+import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms'
+import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { WelcomeComponent } from './welcome/welcome.component';
@@ -13,10 +13,10 @@ import { FooterComponent } from './footer/footer.component';
 import { LogoutComponent } from './logout/logout.component';
 import { HttpClient, HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { TodoComponent } from './todo/todo.component';
-import { HttpIntercepterBasicAuthService } from './service/http/http-intercepter-basic-auth.service';
+import { HttpInterceptorBasicAuthService } from './service/http/http-interceptor-basic-auth.service';
 import { CreateComponent } from './create/create.component';
-import { CreatedSuccessfulyComponent } from './created-successfuly/created-successfuly.component';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap'
+import { CreatedSuccessfullyComponent } from './created-successfully/created-successfully.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -30,7 +30,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap'
     LogoutComponent,
     TodoComponent,
     CreateComponent,
-    CreatedSuccessfulyComponent,
+    CreatedSuccessfullyComponent,
   ],
   imports: [
     BrowserModule,
@@ -41,7 +41,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap'
     NgbModule
   ],
   providers: [
-    {provide : HTTP_INTERCEPTORS, useClass: HttpIntercepterBasicAuthService , multi:true}
+    {provide : HTTP_INTERCEPTORS, useClass: HttpInterceptorBasicAuthService , multi: true}
   ],
   bootstrap: [AppComponent]
 })

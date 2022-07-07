@@ -6,16 +6,16 @@ import { BasicAuthenticationService } from './basic-authentication.service';
 @Injectable({
   providedIn: 'root'
 })
-export class HttpIntercepterBasicAuthService implements HttpInterceptor {
+export class HttpInterceptorBasicAuthService implements HttpInterceptor {
 
 
   constructor(private basicAuthenticationService: BasicAuthenticationService) { }
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    let username = this.basicAuthenticationService.getUsername()
-    let basicAuth = this.basicAuthenticationService.getAuthenticatedToken()
+    const username = this.basicAuthenticationService.getUsername();
+    const basicAuth = this.basicAuthenticationService.getAuthenticatedToken();
     if (username && basicAuth) {
-      req = req.clone({ setHeaders: { Authorization: basicAuth } })
+      req = req.clone({ setHeaders: { Authorization: basicAuth } });
     }
-    return next.handle(req)
+    return next.handle(req);
   }
 }

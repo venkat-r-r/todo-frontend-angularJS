@@ -8,9 +8,9 @@ import { BasicAuthenticationService } from '../service/http/basic-authentication
 })
 export class MenuComponent implements OnInit {
 
-  toggleNavbar = false
+  toggleNavbar = false;
 
-  constructor(public h:BasicAuthenticationService) { }
+  constructor(public h: BasicAuthenticationService) { }
 
   ngOnInit(): void {
   }

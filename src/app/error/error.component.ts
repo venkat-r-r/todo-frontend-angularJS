@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ErrorComponent implements OnInit {
 
-  errorMessage = 'The page you are looking for is not available'
+  errorMessage = 'The page you are looking for is not available';
   constructor() { }
 
   ngOnInit(): void {
