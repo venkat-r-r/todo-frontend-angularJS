@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { todo } from '../list-todo/list-todo.component';
+import { Todo } from '../list-todo/list-todo.component';
 import { TodoDataService } from '../service/data/todo-data.service';
 import { BasicAuthenticationService } from '../service/http/basic-authentication.service';
 
@@ -11,8 +11,8 @@ import { BasicAuthenticationService } from '../service/http/basic-authentication
 })
 export class TodoComponent implements OnInit {
 
-  id: number
-  todo: todo
+  id: number;
+  todo: Todo;
   constructor(
     private basicAuthenticationService: BasicAuthenticationService,
     private todoService: TodoDataService,
@@ -21,26 +21,26 @@ export class TodoComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.id = this.route.snapshot.params['id']
-    this.todo = new todo(this.id, '', new Date(), false)
-    if (this.id != 0) {
-      this.todoService.retriveTodo(this.basicAuthenticationService.getUsername(), this.id).subscribe(
-        data => this.todo = data
-      )
+    this.id = parseInt (this.route.snapshot.params.id, 10);
+    this.todo = new Todo(this.id, '', new Date(), false);
+    if (this.id !== 0) {
+      this.todoService.retrieveTodo(this.basicAuthenticationService.getUsername(), this.id).subscribe(
+        (data: Todo) => this.todo = data
+      );
     }
   }
-  saveTodo() {
-    if (this.id == 0) {
+  saveTodo(): void {
+    if (this.id === 0) {
       this.todoService.createTodo(this.basicAuthenticationService.getUsername(), this.todo).subscribe(
-        data => this.router.navigate(['todos'])
-      )
+        (data: any) => this.router.navigate(['todos'])
+      );
     }
     else {
       this.todoService.updateTodo(this.basicAuthenticationService.getUsername(), this.id, this.todo).subscribe(
-        data => {
-          this.router.navigate(['todos'])
+        (data: any) => {
+          this.router.navigate(['todos']);
         }
-      )
+      );
     }
   }
 

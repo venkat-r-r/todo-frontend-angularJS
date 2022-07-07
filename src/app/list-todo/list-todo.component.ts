@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { TodoDataService } from '../service/data/todo-data.service';
 import { BasicAuthenticationService } from '../service/http/basic-authentication.service';
 
-export class todo {
+export class Todo {
 
   constructor(
     public id: number,
@@ -21,58 +21,56 @@ export class todo {
 })
 export class ListTodoComponent implements OnInit {
 
-  message : string
-  error : string
-  
-  todos : todo[]
+  message: string;
+  error: string;
+
+  todos: Todo[];
   // [
   //   new todo(1, "Learn to dance", new Date(), false),
   //   new todo(2, "Become an expert", new Date(), false),
   //   new todo(3, "Visit Australia", new Date(), false)
   // ]
   constructor(
-    private route : Router,
-    private todoServices : TodoDataService,
-    private basicAuthenticationService : BasicAuthenticationService,
+    private route: Router,
+    private todoServices: TodoDataService,
+    private basicAuthenticationService: BasicAuthenticationService,
   ) { }
 
   ngOnInit(): void {
-    this.refreshTodos()
+    this.refreshTodos();
   }
 
-  refreshTodos()
+  refreshTodos(): void
   {
-    this.todoServices.retriveAllTodos(this.basicAuthenticationService.getUsername()).subscribe(
-      response => {this.todos = response}
-    )
+    this.todoServices.retrieveAllTodos(this.basicAuthenticationService.getUsername()).subscribe(
+      response => { this.todos = response; }
+    );
   }
-  deleteTodo(id : number)
+  deleteTodo(id: number): void
   {
-    this.todoServices.deleteTodo(this.basicAuthenticationService.getUsername(),id).subscribe({
+    this.todoServices.deleteTodo(this.basicAuthenticationService.getUsername(), id).subscribe({
       next: response => {
-         this.message = 'Delete successful'
-         this.refreshTodos()
+         this.message = 'Delete successful';
+         this.refreshTodos();
        },
        error: _ => this.error = 'Error'
-    }
-       
-    )
+    });
   }
-  updateTodo(id : number)
+  updateTodo(id: number): void
   {
-    this.route.navigate(['todos/',id])
+    this.route.navigate(['todos/', id]);
   }
-  addTodo()
+  addTodo(): void
   {
-    this.route.navigate(['todos/',0])
+    this.route.navigate(['todos/', 0]);
   }
-  isComplete(id : number,todo : todo)
+  isComplete(id: number, todo: Todo): void
   {
-    todo.done = !todo.done
-    this.todoServices.updateTodo(this.basicAuthenticationService.getUsername(), id,todo).subscribe(
+    todo.done = !todo.done;
+    this.todoServices.updateTodo(this.basicAuthenticationService.getUsername(), id, todo).subscribe(
     _ => {
-        this.route.navigate(['todos'])
+        this.route.navigate(['todos']);
       }
-    )
+    );
   }
 }

@@ -10,15 +10,15 @@ import { BasicAuthenticationService } from '../service/http/basic-authentication
 export class LogoutComponent implements OnInit {
 
   constructor(
-    private h :BasicAuthenticationService,
+    private h: BasicAuthenticationService,
     private router: Router
     ) { }
 
   ngOnInit(): void {
-    this.h.logout()
+    this.h.logout();
     setTimeout(() => {
       this.router.navigate(['/']);
-    }, 3000)
+    }, 3000);
   }
 
 }

@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { HttpIntercepterBasicAuthService } from './http-intercepter-basic-auth.service';
+import { HttpInterceptorBasicAuthService } from './http-interceptor-basic-auth.service';
 
-describe('HttpIntercepterBasicAuthService', () => {
-  let service: HttpIntercepterBasicAuthService;
+describe('HttpInterceptorBasicAuthService', () => {
+  let service: HttpInterceptorBasicAuthService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(HttpIntercepterBasicAuthService);
+    service = TestBed.inject(HttpInterceptorBasicAuthService);
   });
 
   it('should be created', () => {
