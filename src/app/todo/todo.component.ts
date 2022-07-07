@@ -21,7 +21,7 @@ export class TodoComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.id = this.route.snapshot.params.id;
+    this.id = parseInt (this.route.snapshot.params.id, 10);
     this.todo = new Todo(this.id, '', new Date(), false);
     if (this.id !== 0) {
       this.todoService.retrieveTodo(this.basicAuthenticationService.getUsername(), this.id).subscribe(
