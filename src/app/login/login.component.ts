@@ -15,14 +15,14 @@ export class LoginComponent implements OnInit {
   isInvalid = false;
 
 
-  constructor(
+  constructor (
     public basicAuthenticationService: BasicAuthenticationService,
     private router: Router,
     ){ }
 
-  ngOnInit(): void {
+  ngOnInit (): void {
   }
-  handleBasicAuthLogin(): void
+  handleBasicAuthLogin (): void
   {
     this.basicAuthenticationService.executeBasicAuthentication(this.username, this.password)
     .subscribe({
@@ -35,7 +35,7 @@ export class LoginComponent implements OnInit {
       }
     });
   }
-  handleJWTAuthLogin(): void
+  handleJWTAuthLogin (): void
   {
     this.basicAuthenticationService.executeJWTAuthentication(this.username, this.password)
     .subscribe({

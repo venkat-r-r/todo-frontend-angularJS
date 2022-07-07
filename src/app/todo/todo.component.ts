@@ -13,14 +13,14 @@ export class TodoComponent implements OnInit {
 
   id: number;
   todo: Todo;
-  constructor(
+  constructor (
     private basicAuthenticationService: BasicAuthenticationService,
     private todoService: TodoDataService,
     private route: ActivatedRoute,
     private router: Router
   ) { }
 
-  ngOnInit(): void {
+  ngOnInit (): void {
     this.id = parseInt (this.route.snapshot.params.id, 10);
     this.todo = new Todo(this.id, '', new Date(), false);
     if (this.id !== 0) {
@@ -29,7 +29,7 @@ export class TodoComponent implements OnInit {
       );
     }
   }
-  saveTodo(): void {
+  saveTodo (): void {
     if (this.id === 0) {
       this.todoService.createTodo(this.basicAuthenticationService.getUsername(), this.todo).subscribe(
         (data: any) => this.router.navigate(['todos'])

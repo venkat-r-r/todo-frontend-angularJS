@@ -24,7 +24,8 @@
     "import-spacing": true,
     "indent": {
       "options": [
-        "spaces"
+        "spaces",
+        2
       ]
     },
     "max-classes-per-file": false,
@@ -75,11 +76,11 @@
     },
     "space-before-function-paren": {
       "options": {
-        "anonymous": "never",
+        "anonymous": "always",
         "asyncArrow": "always",
-        "constructor": "never",
-        "method": "never",
-        "named": "never"
+        "constructor": "always",
+        "method": "always",
+        "named": "always"
       }
     },
     "typedef": [

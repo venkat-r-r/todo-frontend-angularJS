@@ -8,12 +8,12 @@ import { BasicAuthenticationService } from './http/basic-authentication.service'
 })
 export class RouteGuardService implements CanActivate {
 
-  constructor(
+  constructor (
     private h: BasicAuthenticationService,
     private router: Router
     )
   { }
-  canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean
+  canActivate (route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean
   {
      if (this.h.isUserLoggedIn()) { return true; }
      this.router.navigate(['/']);

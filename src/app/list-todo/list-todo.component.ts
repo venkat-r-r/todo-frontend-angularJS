@@ -5,7 +5,7 @@ import { BasicAuthenticationService } from '../service/http/basic-authentication
 
 export class Todo {
 
-  constructor(
+  constructor (
     public id: number,
     public description: string,
     public targetDate: Date,
@@ -30,23 +30,23 @@ export class ListTodoComponent implements OnInit {
   //   new todo(2, "Become an expert", new Date(), false),
   //   new todo(3, "Visit Australia", new Date(), false)
   // ]
-  constructor(
+  constructor (
     private route: Router,
     private todoServices: TodoDataService,
     private basicAuthenticationService: BasicAuthenticationService,
   ) { }
 
-  ngOnInit(): void {
+  ngOnInit (): void {
     this.refreshTodos();
   }
 
-  refreshTodos(): void
+  refreshTodos (): void
   {
     this.todoServices.retrieveAllTodos(this.basicAuthenticationService.getUsername()).subscribe(
       response => { this.todos = response; }
     );
   }
-  deleteTodo(id: number): void
+  deleteTodo (id: number): void
   {
     this.todoServices.deleteTodo(this.basicAuthenticationService.getUsername(), id).subscribe({
       next: response => {
@@ -56,15 +56,15 @@ export class ListTodoComponent implements OnInit {
        error: _ => this.error = 'Error'
     });
   }
-  updateTodo(id: number): void
+  updateTodo (id: number): void
   {
     this.route.navigate(['todos/', id]);
   }
-  addTodo(): void
+  addTodo (): void
   {
     this.route.navigate(['todos/', 0]);
   }
-  isComplete(id: number, todo: Todo): void
+  isComplete (id: number, todo: Todo): void
   {
     todo.done = !todo.done;
     this.todoServices.updateTodo(this.basicAuthenticationService.getUsername(), id, todo).subscribe(

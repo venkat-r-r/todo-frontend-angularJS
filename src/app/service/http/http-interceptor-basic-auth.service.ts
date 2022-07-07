@@ -9,8 +9,8 @@ import { BasicAuthenticationService } from './basic-authentication.service';
 export class HttpInterceptorBasicAuthService implements HttpInterceptor {
 
 
-  constructor(private basicAuthenticationService: BasicAuthenticationService) { }
-  intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+  constructor (private basicAuthenticationService: BasicAuthenticationService) { }
+  intercept (req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     const username = this.basicAuthenticationService.getUsername();
     const basicAuth = this.basicAuthenticationService.getAuthenticatedToken();
     if (username && basicAuth) {

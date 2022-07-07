@@ -11,9 +11,9 @@ export const AUTHENTICATED_USER = 'authenticatedUser';
 })
 export class BasicAuthenticationService {
 
-  constructor(private http: HttpClient) { }
+  constructor (private http: HttpClient) { }
 
-  executeJWTAuthentication(username: string, password: string): any {
+  executeJWTAuthentication (username: string, password: string): any {
     return this.http.post<any>(
       `${environment.apiURL}/authenticate`,
       {
@@ -31,7 +31,7 @@ export class BasicAuthenticationService {
         )
       );
   }
-  executeBasicAuthentication(username: string, password: string): any {
+  executeBasicAuthentication (username: string, password: string): any {
     const basicAuth = 'Basic ' + window.btoa(`${username}:${password}`);
     const header = new HttpHeaders({
       Authorization: basicAuth
@@ -50,23 +50,23 @@ export class BasicAuthenticationService {
   }
 
 
-  getUsername(): string {
+  getUsername (): string {
     return sessionStorage.getItem(AUTHENTICATED_USER);
   }
-  isUserLoggedIn(): boolean {
+  isUserLoggedIn (): boolean {
     const user = sessionStorage.getItem(AUTHENTICATED_USER);
     return !(user == null);
   }
-  getAuthenticatedToken(): string {
+  getAuthenticatedToken (): string {
     if (this.isUserLoggedIn()) {
       return sessionStorage.getItem(TOKEN);
     }
   }
-  logout(): void {
+  logout (): void {
     sessionStorage.removeItem(AUTHENTICATED_USER);
     sessionStorage.removeItem(TOKEN);
   }
 }
 export class AuthenticationBean {
-  constructor(public message: string) { }
+  constructor (public message: string) { }
 }

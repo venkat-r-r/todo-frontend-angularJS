@@ -14,13 +14,13 @@ export class CreateComponent implements OnInit {
   password: string;
   errorMessage = 'Username already exists';
   isInvalid = false;
-  constructor(private http: HttpClient, private router: Router) { }
+  constructor (private http: HttpClient, private router: Router) { }
 
-  ngOnInit(): void {
+  ngOnInit (): void {
     this.username = '';
     this.password = '';
   }
-  createAccount(): void{
+  createAccount (): void{
     this.http.post<any>(
       `${environment.apiURL}/register`,
       {
