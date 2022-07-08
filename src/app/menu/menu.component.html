@@ -1,12 +1,12 @@
 <header>
     <nav class="navbar navbar-expand-md navbar-dark bg-dark">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">Todo App</a>
+            <a class="navbar-brand" href="/welcome">Todo App</a>
             <button class="navbar-toggler" type="button" (click)="toggleNavbar = !toggleNavbar">
                 <span class="visually-hidden">Toggle navigation</span>
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" [ngbCollapse]="!toggleNavbar">
+            <div class="collapse navbar-collapse">
                 <ul class="navbar-nav" >
                     <li *ngIf = '!h.isUserLoggedIn()' class="nav-item">
                         <a class="nav-link" routerLink="/login">Sign in</a>
